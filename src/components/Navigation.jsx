@@ -112,16 +112,7 @@ export const Navigation = () => {
               }`}
             >
               <span className="relative">
-                Vikash
-                <motion.span 
-                  className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600"
-                  animate={{ 
-                    backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                  }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                >
-                  KR
-                </motion.span>
+                Vikash Ummadi 
               </span>
             </motion.a>
 
