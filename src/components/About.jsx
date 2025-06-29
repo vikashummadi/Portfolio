@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, Award, BookOpen, Calendar, MapPin, Star } from 'lucide-react';
+import { GraduationCap, Award, BookOpen, Calendar, MapPin, Star, Code, Globe, Cpu, Users, Shield } from 'lucide-react';
 import { AnimatedSection } from './AnimatedSection';
 
 export const About = () => {
@@ -14,33 +14,41 @@ export const About = () => {
 
   const certifications = [
     {
-      title: "Full Stack Web Development",
-      provider: "Apna College",
-      year: "2023",
-      icon: "🎓",
-      color: "from-blue-500 to-cyan-500"
+      title: "Web Full Stack Developer Virtual Internship",
+      provider: "AICTE",
+      year: "2024",
+      color: "from-blue-500 to-cyan-500",
+      icon: Code
     },
     {
-      title: "Java Programming Fundamentals",
-      provider: "Infosys Springboard",
-      year: "2023",
-      icon: "☕",
-      color: "from-orange-500 to-red-500"
+      title: "Build a free website with WordPress",
+      provider: "Coursera",
+      year: "2024",
+      color: "from-orange-500 to-red-500",
+      icon: Globe
     },
     {
       title: "Introduction to Hardware and Operating Systems",
       provider: "Coursera IBM",
       year: "2024",
-      icon: "🧮",
-      color: "from-green-500 to-emerald-500"
+      color: "from-green-500 to-emerald-500",
+      icon: Cpu
     },
     {
       title: "Agile development and Scrum",
       provider: "Coursera IBM",
       year: "2024",
-      icon: "🧮",
-      color: "from-green-500 to-emerald-500"
+      color: "from-purple-500 to-fuchsia-600",
+      icon: Users
+    },
+    {
+      title: "Introduction to Cybersecurity",
+      provider: "Cisco Networking Academy",
+      year: "2025",
+      color: "from-gray-400 to-slate-600",
+      icon: Shield
     }
+
   ];
 
   const highlights = [
@@ -225,9 +233,9 @@ export const About = () => {
               >
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
-                  className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br ${cert.color} mb-6 shadow-lg text-3xl`}
+                  className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br ${cert.color} mb-6 shadow-lg text-white`}
                 >
-                  {cert.icon}
+                  <cert.icon size={32} />
                 </motion.div>
                 
                 <h4 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300">
