@@ -140,6 +140,7 @@ export const Footer = () => {
             >
               <p className="text-sm text-blue-300 mb-2">Currently seeking</p>
               <p className="text-white font-semibold">Full-Stack Developer Opportunities</p>
+              <p className="text-white font-semibold">Software Development Engineer (SDE)</p>
             </motion.div>
           </motion.div>
         </div>
@@ -158,7 +159,7 @@ export const Footer = () => {
             >
               Made with <Heart size={16} className="text-red-500 mx-2 animate-pulse" /> by Vikash Kumar Reddy
               <span className="mx-2">•</span>
-              © 2024 All rights reserved
+              © 2025 All rights reserved
             </motion.p>
             
             <motion.button

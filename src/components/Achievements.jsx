@@ -16,10 +16,10 @@ export const Achievements = () => {
     },
     {
       title: 'GeeksforGeeks Contributor',
-      description: '140+ problems solved with consistent practice',
+      description: '190+ problems solved with consistent practice',
       icon: Target,
       color: 'from-green-500 to-emerald-500',
-      stats: '140+',
+      stats: '190+',
       category: 'Problem Solving',
       link: 'https://www.geeksforgeeks.org/user/vikashu01j7/'
     },
@@ -170,10 +170,10 @@ export const Achievements = () => {
               <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-yellow-400 to-orange-400 rounded-full"></div>
               
               {[
-                { year: '2021', event: 'Started B.Tech CSE', description: 'Began my journey in Computer Science' },
-                { year: '2022', event: 'First Programming Contest', description: 'Participated in college coding competition' },
-                { year: '2023', event: 'MERN Stack Learning', description: 'Mastered full-stack web development' },
-                { year: '2024', event: 'Major Projects', description: 'Built CodeLearn and Nestora applications' }
+                { year: '2022', event: 'Started B.Tech CSE', description: 'Began my journey in Computer Science' },
+                { year: '2023', event: 'First Programming Contest', description: 'Participated in college coding competition' },
+                { year: '2023-24', event: 'MERN Stack Learning', description: 'Mastered full-stack web development' },
+                { year: '2024-25', event: 'Major Projects', description: 'Built Nestora applications and Chat Room' }
               ].map((milestone, index) => (
                 <motion.div
                   key={index}

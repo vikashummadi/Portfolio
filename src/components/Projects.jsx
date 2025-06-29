@@ -9,35 +9,36 @@ export const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'CodeLearn - LMS Platform',
-      category: 'fullstack',
-      description: 'A comprehensive Learning Management System with AI-powered chatbot and real-time collaborative code rooms for interactive programming education.',
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Socket.io', 'OpenAI API', 'Express.js', 'JWT'],
+      title: 'Real-Time Chat Room',
+      category: 'Fullstack',
+      description: 'A modern web chat with private messaging, role-based nicknames and user authentication',
+      image: 'https://cdn.scopicsoftware.com/wp-content/uploads/2019/04/chat-app-1.jpg',
+      technologies: ['HTML', 'Node.js', 'Socket.io', 'Express.js', 'CSS', 'JavaScript'],
       liveUrl: '#',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/vikashummadi/chat_room',
       featured: true,
       stats: { stars: 45, forks: 12, views: 890 },
-      details: 'CodeLearn is a modern Learning Management System designed for programming education. It features an AI-powered chatbot that helps students with coding questions, real-time collaborative code rooms where multiple users can code together, progress tracking, assignment submission, and interactive quizzes. The platform supports multiple programming languages and provides instant feedback on code submissions.',
+      details: 'This project is a full-stack real-time chat application built using Node.js, Express.js, and Socket.io. It enables users to join public or private chat rooms with real-time messaging features. The app supports role-based nicknames, live user tracking, and typing indicators. The frontend is fully responsive and themeable with light/dark mode support, and the backend is structured for scalability and ease of maintenance.',
       highlights: [
-        'AI Chatbot integration for instant help',
-        'Real-time collaborative code editor',
-        'Progress tracking and analytics',
-        'Multi-language code execution',
-        'Interactive quiz system',
-        'Assignment management'
+        'Real-time public and private messaging with Socket.io',
+        'Role-based nickname assignment and validation',
+        'Live user tracking and "user is typing" indicators',
+        'Fully responsive UI with light/dark mode switch',
+        'Authentication and join/leave notifications',
+        'Clear modular separation of server and client logic',
+        'Deployed on Vercel/Render for public access'
       ],
       icon: Bot
     },
     {
       id: 2,
       title: 'Nestora - Vacation Rental App',
-      category: 'fullstack',
+      category: 'Fullstack',
       description: 'An Airbnb-inspired vacation rental platform with advanced search, secure authentication, and cloud-based image management.',
       image: 'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Cloudinary', 'Passport.js', 'Express.js', 'Stripe'],
+      technologies: ['EJS', 'Node.js', 'MongoDB', 'Cloudinary', 'Passport.js', 'Express.js'],
       liveUrl: '#',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/vikashummadi/nestora-vacational-rental-booking-platform',
       featured: true,
       stats: { stars: 67, forks: 23, views: 1240 },
       details: 'Nestora is a full-featured vacation rental platform that allows users to list and book properties. It includes advanced search and filtering, secure user authentication with Passport.js, image upload and management with Cloudinary, booking management, payment integration with Stripe, user reviews and ratings, and responsive design for all devices.',
@@ -58,22 +59,22 @@ export const Projects = () => {
       {/* Background Effects */}
       <div className="absolute inset-0">
         <motion.div
-          animate={{ 
+          animate={{
             rotate: 360,
             scale: [1, 1.2, 1]
           }}
-          transition={{ 
+          transition={{
             rotate: { duration: 30, repeat: Infinity, ease: "linear" },
             scale: { duration: 10, repeat: Infinity }
           }}
           className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"
         />
         <motion.div
-          animate={{ 
+          animate={{
             rotate: -360,
             y: [0, -40, 0]
           }}
-          transition={{ 
+          transition={{
             rotate: { duration: 25, repeat: Infinity, ease: "linear" },
             y: { duration: 8, repeat: Infinity }
           }}
@@ -83,7 +84,7 @@ export const Projects = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <AnimatedSection className="text-center mb-16" animation="scaleIn">
-          <motion.h2 
+          <motion.h2
             className="text-4xl md:text-6xl font-bold text-white mb-6"
             whileHover={{ scale: 1.05 }}
           >
@@ -108,7 +109,7 @@ export const Projects = () => {
                 initial={{ opacity: 0, y: 30, rotateX: -10 }}
                 whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
                 transition={{ duration: 0.6 }}
-                whileHover={{ 
+                whileHover={{
                   y: -10,
                   rotateY: 5,
                   boxShadow: "0 25px 50px rgba(0,0,0,0.3)"
@@ -117,14 +118,14 @@ export const Projects = () => {
                 onClick={() => setSelectedProject(project.id)}
               >
                 <div className="relative overflow-hidden">
-                  <motion.img 
-                    src={project.image} 
+                  <motion.img
+                    src={project.image}
                     alt={project.title}
                     className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110"
                     whileHover={{ scale: 1.1 }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  
+
                   {/* Project Icon */}
                   <motion.div
                     initial={{ opacity: 0, scale: 0 }}
@@ -165,13 +166,13 @@ export const Projects = () => {
                     </div>
                   </motion.div>
                 </div>
-                
+
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
                     {project.title}
                   </h3>
                   <p className="text-gray-300 mb-4 leading-relaxed">{project.description}</p>
-                  
+
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.slice(0, 4).map((tech, techIndex) => (
                       <motion.span
@@ -189,9 +190,9 @@ export const Projects = () => {
                       <span className="text-gray-400 text-sm">+{project.technologies.length - 4} more</span>
                     )}
                   </div>
-                  
+
                   <div className="flex space-x-4">
-                    <motion.a
+                    {/* <motion.a
                       href={project.liveUrl}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -200,7 +201,7 @@ export const Projects = () => {
                     >
                       <ExternalLink size={16} className="mr-1" />
                       Live Demo
-                    </motion.a>
+                    </motion.a> */}
                     <motion.a
                       href={project.githubUrl}
                       whileHover={{ scale: 1.05 }}
@@ -239,18 +240,18 @@ export const Projects = () => {
                 {(() => {
                   const project = projects.find(p => p.id === selectedProject);
                   if (!project) return null;
-                  
+
                   return (
                     <>
                       <div className="relative">
-                        <motion.img 
-                          src={project.image} 
+                        <motion.img
+                          src={project.image}
                           alt={project.title}
                           className="w-full h-80 object-cover rounded-t-3xl"
                           layoutId={`project-image-${project.id}`}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-t-3xl" />
-                        
+
                         <motion.button
                           onClick={() => setSelectedProject(null)}
                           whileHover={{ scale: 1.1, rotate: 90 }}
@@ -281,9 +282,9 @@ export const Projects = () => {
                           ))}
                         </div>
                       </div>
-                      
+
                       <div className="p-8">
-                        <motion.h3 
+                        <motion.h3
                           className="text-3xl font-bold text-white mb-4"
                           initial={{ opacity: 0, y: -20 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -291,8 +292,8 @@ export const Projects = () => {
                         >
                           {project.title}
                         </motion.h3>
-                        
-                        <motion.p 
+
+                        <motion.p
                           className="text-gray-300 mb-6 leading-relaxed text-lg"
                           initial={{ opacity: 0, y: -20 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -318,7 +319,7 @@ export const Projects = () => {
                                 transition={{ delay: 0.4 + index * 0.1 }}
                                 className="flex items-center text-gray-300"
                               >
-                                <motion.span 
+                                <motion.span
                                   className="text-green-400 mr-3"
                                   animate={{ scale: [1, 1.2, 1] }}
                                   transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
@@ -330,7 +331,7 @@ export const Projects = () => {
                             ))}
                           </ul>
                         </motion.div>
-                        
+
                         <motion.div
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -353,7 +354,7 @@ export const Projects = () => {
                             ))}
                           </div>
                         </motion.div>
-                        
+
                         <motion.div
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
