@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, CheckCircle, Github, Linkedin, ExternalLink, Code } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, Github, Linkedin, ExternalLink, Code, AlertCircle } from 'lucide-react';
 import { AnimatedSection } from './AnimatedSection';
+import emailjs from '@emailjs/browser';
 
 export const Contact = () => {
+  const formRef = useRef();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,20 +14,34 @@ export const Contact = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
   const [activeField, setActiveField] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError('');
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitted(true);
-    setIsSubmitting(false);
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    
-    setTimeout(() => setIsSubmitted(false), 4000);
+    try {
+      // EmailJS configuration - you'll need to set up your own account
+      const result = await emailjs.sendForm(
+        'service_0jjpnyw', 
+        'template_vfqmlsr', 
+        formRef.current,
+        'pV3z33OV8WEqPwZb3' 
+      );
+      
+      console.log('Email sent successfully:', result.text);
+      setIsSubmitted(true);
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      
+      setTimeout(() => setIsSubmitted(false), 4000);
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      setError('Failed to send message. Please try again or contact me directly at vikashummadi@gmail.com');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -245,7 +261,7 @@ export const Contact = () => {
                 Send a Message
               </motion.h3>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                 {/* Name and Email Row */}
                 <div className="grid md:grid-cols-2 gap-6">
                   <motion.div
@@ -350,6 +366,18 @@ export const Contact = () => {
                     placeholder="Tell me about your project or opportunity..."
                   />
                 </motion.div>
+
+                {/* Error Message */}
+                {error && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="flex items-center space-x-2 p-4 bg-red-500/20 border border-red-500/30 rounded-lg text-red-300"
+                  >
+                    <AlertCircle size={20} />
+                    <span>{error}</span>
+                  </motion.div>
+                )}
 
                 {/* Submit Button */}
                 <motion.div
