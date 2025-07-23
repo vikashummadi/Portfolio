@@ -55,7 +55,7 @@ export const Hero = () => {
 
   const handleResumeDownload = () => {
     const link = document.createElement('a');
-    link.href = 'https://drive.google.com/file/d/1hJjJotdSH6aCEeWzFlsk3nCCthiPrl-_/view';
+    link.href = 'https://docs.google.com/document/d/1Q77H36xSN5M85ekXW4moe5Eh36l-5FPP/export?format=pdf';
     link.download = 'Vikash_Kumar_Reddy_Resume.pdf';
     link.click();
   };
